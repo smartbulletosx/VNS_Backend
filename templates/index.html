@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Сводная таблица результатов</title>
+</head>
+<body>
+    <div id="block-body">
+     <header>
+       <div class="logo">
+        <a href="">
+          <span class="use">Всегда на связи</span>
+        </a>
+       <p>Результаты</p>
+       </div>
+         <img class="logo_img" src="{% static 'img/logo.png' %}">
+     </header>
+     <div class="main_part">
+         <span class="result_table_text">Таблица результатов</span>
+     </div>
+
+        <div class="res_table">
+        <table>
+            <tr>
+                <th>Место</th>
+                <th>Название команды</th>
+                <th>Результат за стрельбу</th>
+                <th>Результат за гонку</th>
+            </tr>
+            {% for player in players %}
+                <tr>
+                    <td>{{ player.position }}</td>
+                    <td>{{ player.name }}</td>
+                    <td>{{ player.result }}</td>
+                    <td>{{ player.result_race }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        </div>
+
+    </div>
+</body>
+</html>
